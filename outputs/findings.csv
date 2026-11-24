@@ -1,0 +1,8 @@
+test_id,name,severity,status,detail,metric
+T01,"PD bounds in [0,1]",Info,PASS,out_of_bounds=0,0.0
+T02,DD vs PD rank correlation negative,Info,PASS,spearman=-1.000,-1.0
+T03,IRB RW increases in PD,Info,PASS,"rw(0.1%)=0.297, rw(5%)=1.499",1.202004156000564
+T04,Max |ΔPD| below threshold,Medium,WARN,max_abs_dPD=0.211,0.2114410383648506
+T05,Point-in-time debt (conceptual),High,WARN,Current MVP uses constant illustrative debt — flag as model limitation / incomplete PIT.,
+T06,Loss tail above mean,Info,PASS,"mean=3777734, p99=7965500",7965500.416104463
+T07,Minimum name coverage,Info,PASS,n_tickers=10,10.0
