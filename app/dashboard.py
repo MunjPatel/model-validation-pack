@@ -9,12 +9,11 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 P2 = ROOT / "fixtures" / "credit_risk_engine"
-sys.path.insert(0, str(ROOT))  # local shared/ for standalone + Streamlit Cloud
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(P2 / "src"))
 
 from shared.plot_theme import COLORS, apply_plotly_theme  # noqa: E402
-from challenge_tests import run_all_tests  # noqa: E402
 
 st.set_page_config(page_title="Model Validation Pack", layout="wide")
 st.markdown(
@@ -22,17 +21,20 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.title("Model Validation Pack")
-st.caption("SR 11-7–aligned challenge tests on the Credit Risk Engine")
+st.caption("Independent SR 11-7–style challenge of my Credit Risk Engine")
 
 dd_path = P2 / "outputs" / "dd_panel.csv"
 loss_path = P2 / "outputs" / "loss_sims.csv"
 findings_path = ROOT / "outputs" / "findings.csv"
 memo_path = ROOT / "outputs" / "VALIDATION_MEMO.md"
 
-if st.button("Re-run challenge battery") or not findings_path.exists():
+rerun = st.button("Re-run challenge battery")
+if rerun or not findings_path.exists():
     if not dd_path.exists() or not loss_path.exists():
-        st.warning("P2 outputs missing — run `python 02_credit_risk_engine/scripts/run_mvp.py` first.")
+        st.error("Bundled credit-engine fixtures are missing from this deployment.")
         st.stop()
+    from challenge_tests import run_all_tests  # lazy import so the page can still load findings
+
     dd = pd.read_csv(dd_path, parse_dates=["date"])
     losses = pd.read_csv(loss_path)
     findings = run_all_tests(dd, losses)

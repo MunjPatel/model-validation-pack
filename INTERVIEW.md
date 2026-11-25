@@ -1,7 +1,5 @@
-# Interview narrative — Model Validation
+# Project notes — Model Validation Pack
 
-1. Independence: I did not “sell” the credit model; I challenged it.
-2. SR 11-7 pillars → mapped to concrete tests + memo.
-3. Show the WARN on illustrative debt as a *good* finding (validators find limitations).
-4. Outcomes analysis: monotonicity, bounds, loss-tail sanity, stability.
-5. Recommendation language: conditional acceptance with use limitations.
+I wrote an independent challenge battery against my credit-risk engine: PD bounds, DD–PD coherence, IRB monotonicity, stability, and conceptual PIT gaps — summarized as a pass/warn/fail findings board and validation memo.
+
+**What I found:** core quantitative checks pass; illustrative constant debt correctly surfaces as a WARN for incomplete point-in-time debt.

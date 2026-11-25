@@ -46,7 +46,7 @@ Automated challenge battery results:
 
 ## 6. Use limitations
 
-Do not use absolute PDs for regulatory capital, pricing, or credit approval. Suitable for **methodology demonstration** and relative ranking experiments only until PIT debt and empirical PD mapping are implemented.
+I would not use these absolute PDs for regulatory capital, pricing, or credit approval. This pack is a methodology demonstration until PIT debt and empirical PD mapping are in place.
 
 ## 7. Recommendation
 

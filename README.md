@@ -27,3 +27,8 @@ streamlit run 03_model_validation_pack/app/dashboard.py
 5. Python version 3.11+ recommended → Deploy
 
 The app reads artifacts under `outputs/`. Re-run `scripts/run_mvp.py` locally if you need to refresh them before pushing.
+
+## Live dashboard
+
+[https://model-validation-pack.streamlit.app/](https://model-validation-pack.streamlit.app/)
+
